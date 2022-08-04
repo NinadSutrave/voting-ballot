@@ -1,0 +1,62 @@
+.heading {
+    margin: 1.25rem;
+  }
+.login-wrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    background: #f2f2f2;
+    border: 1px solid #222222;
+    box-shadow: center;
+  }
+  
+  .login-form {
+      width: 70%;
+  }
+
+  .submitButton {
+    width: 200px;
+  }
+  
+  input[type=text], input[type=password], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    
+    input[type=submit]:hover {
+        width: 100%;
+      background-color: #45a049;
+    }
+  
+  @media screen and (max-width: 800px) {
+  
+    .login-wrapper {
+      width: 60%;
+    }
+    .login-form {
+      width: 90%;
+    }
+    .container {
+      align-items: center;
+    }
+  
+  }
+
+  @media screen and (max-width: 550px) {
+  
+    .login-wrapper {
+      width: 80%;
+    }
+  
+  }
