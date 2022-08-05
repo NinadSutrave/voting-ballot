@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import './VoteForm.css'
 
 const VoteForm = () => {
@@ -7,12 +8,33 @@ const VoteForm = () => {
     pehchaanId: "",
     secretToken: "",
     president: "",
-    vicePresident: "",
+    vice: "",
+    secretary: ""
 })
   
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    axios.patch('https://voting-ballot.herokuapp.com/admin/updateVote', formDetails)
+    .then(res => {
+      if(res.data === "Successful") {
+        setFormDetails({
+          pehchaanId: "",
+          secretToken: "",
+          president: "",
+          vice: "",
+          secretary: ""
+        })
+        alert("Successfully Submitted")
+      }
+      else {
+        alert("Invalid credentials")
+      }
+    })
+    .catch(err => {
+      alert("Something went wrong")
+    })
+
   }
 
   return (
@@ -54,25 +76,57 @@ const VoteForm = () => {
         <label>Contesting candidates for <strong>President</strong> <span className="mandatory">*</span></label><br/>
             <input required="required" type="radio" id="tiwari" name="president" value="Katyayani Tiwari" 
                    onChange={(e) => {
-                    console.log(e)
+                    let prev = {...formDetails}
+                    prev.president = "tiwari"
+                    setFormDetails(prev)
                   }}
             />
             <label for="html">Katyayani Tiwari</label><br/>
-            <input required="required" type="radio" id="chenaram" name="president" value="Chenaram Kumawat" />
+            <input required="required" type="radio" id="chenaram" name="president" value="Chenaram Kumawat" 
+                  onChange={(e) => {
+                    let prev = {...formDetails}
+                    prev.president = "chena"
+                    setFormDetails(prev)
+                  }}
+            />
             <label for="css">Chenaram Kumawat</label><br/><br/>
 
 
         <label>Contesting candidates for <strong>Vice President</strong> <span className="mandatory">*</span></label><br/>
-            <input required="required" type="radio" id="tiwari" name="vicepresident" value="Katyayani Tiwari" />
+            <input required="required" type="radio" id="tiwari" name="vicepresident" value="Katyayani Tiwari"
+                   onChange={(e) => {
+                    let prev = {...formDetails}
+                    prev.vice = "tiwari"
+                    setFormDetails(prev)
+                  }}
+            />
             <label for="html">Katyayani Tiwari</label><br/>
-            <input required="required" type="radio" id="chenaram" name="vicepresident" value="Chenaram Kumawat" />
+            <input required="required" type="radio" id="chenaram" name="vicepresident" value="Chenaram Kumawat" 
+                  onChange={(e) => {
+                    let prev = {...formDetails}
+                    prev.vice = "chena"
+                    setFormDetails(prev)
+                  }}
+            />
             <label for="css">Chenaram Kumawat</label><br/><br/>
 
 
         <label>Contesting candidates for <strong>Secretary 1</strong> <span className="mandatory">*</span></label><br/>
-            <input required="required" type="radio" id="chandan" name="secretary1" value="Chandan Kumar Yadav" />
+            <input required="required" type="radio" id="chandan" name="secretary1" value="Chandan Kumar Yadav" 
+                  onChange={(e) => {
+                    let prev = {...formDetails}
+                    prev.secretary = "chandan"
+                    setFormDetails(prev)
+                  }}
+            />
             <label for="html">Chandan Kumar Yadav</label><br/>
-            <input required="required" type="radio" id="vinit" name="secretary1" value="Vinit Kujur" />
+            <input required="required" type="radio" id="vinit" name="secretary1" value="Vinit Kujur" 
+                  onChange={(e) => {
+                    let prev = {...formDetails}
+                    prev.secretary = "vinit"
+                    setFormDetails(prev)
+                  }}
+            />
             <label for="css">Vinit Kujur</label><br/><br/>
 
         <label>Contesting candidates for <strong>Secretary 2</strong> <span className="mandatory">*</span></label><br/>

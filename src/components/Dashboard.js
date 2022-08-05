@@ -25,6 +25,7 @@ const Dashboard = () => {
     }
   })
 
+  const [disabled, setDisabled] = useState(false)
 
   useEffect(() => {
 
@@ -61,17 +62,19 @@ const Dashboard = () => {
 
   const generateToken = (voter) => {
 
-    // axios.post('https://voting-ballot.herokuapp.com/admin/createPassword', {
-    //   name: voter.name,
-    //   pehchaanId: voter.pehchaanId,
-    //   emailId: voter.emailId
-    // })
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err))
+    axios.post('https://voting-ballot.herokuapp.com/admin/createPassword', {
+      name: voter.name,
+      pehchaanId: voter.pehchaanId,
+      emailId: voter.emailId
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
 
   }
 
   const showResults = () => {
+
+      setDisabled(true)
 
       const date = new Date()
       const time = date.toTimeString()
@@ -98,12 +101,14 @@ const Dashboard = () => {
       })
       .catch(err => console.log(err))
 
+      setTimeout(() => setDisabled(false), 300000)
+
   }
 
   return (
     <div className="dashboard">
 
-      <Button variant="primary" onClick={showResults}>View Results</Button>
+      <Button variant="primary" disabled={disabled} onClick={showResults}>View Results</Button>
       {
         (show)?
       <div className="results">
@@ -166,14 +171,14 @@ const Dashboard = () => {
                 </tr>
               }
             }
-            else {
+            
               return <tr>
                 <td>{index+1}</td>
                 <td>{voter.name}</td>
                 <td><Button variant="primary" onClick={(voter) => generateToken(voter)}>Send Token</Button></td>
                 <td><strong>{(voter.voted)?"Voted":"-"}</strong></td>
               </tr>
-            }
+            
         })
         }
       </tbody>
