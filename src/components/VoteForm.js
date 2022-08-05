@@ -27,6 +27,16 @@ const VoteForm = () => {
         })
         alert("Successfully Submitted")
       }
+      else if(res.data === "Voted") {
+        setFormDetails({
+          pehchaanId: "",
+          secretToken: "",
+          president: "",
+          vice: "",
+          secretary: ""
+        })
+        alert("You can only vote once!")
+      }
       else {
         alert("Invalid credentials")
       }
