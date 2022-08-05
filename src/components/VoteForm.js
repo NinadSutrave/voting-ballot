@@ -15,7 +15,7 @@ const VoteForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.patch('https://voting-ballot.herokuapp.com/admin/updateVote', formDetails)
+    axios.patch(process.env.REACT_APP_BACKEND_URL + 'admin/updateVote', formDetails)
     .then(res => {
       if(res.data === "Successful") {
         setFormDetails({

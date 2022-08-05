@@ -7,7 +7,7 @@ import './Dashboard.css'
 const Dashboard = () => {
 
   const [list, setList] = useState()
-  const [checked, setChecked] = useState()
+  const [checked, setChecked] = useState(false)
   const [time, setTime] = useState()
   const [show, setShow] = useState(false)
   const [results, setResults] = useState({
@@ -25,11 +25,9 @@ const Dashboard = () => {
     }
   })
 
-  const [disabled, setDisabled] = useState(false)
-
   useEffect(() => {
 
-    axios.get('https://voting-ballot.herokuapp.com/admin/viewVoters')
+    axios.get(process.env.REACT_APP_BACKEND_URL + 'admin/viewVoters')
     .then(res => setList(res.data))
     .catch(err => console.log(err))
 
@@ -48,7 +46,7 @@ const Dashboard = () => {
 
   const handleChange = (e) => {
     
-    axios.get('https://voting-ballot.herokuapp.com/admin/viewVoters?searchItem='+e.target.value)
+    axios.get(process.env.REACT_APP_BACKEND_URL + 'admin/viewVoters?searchItem='+e.target.value)
     .then(res => setList(res.data))
     .catch(err => console.log(err))
 
@@ -60,9 +58,14 @@ const Dashboard = () => {
     setChecked(!checked)
   }
 
-  const generateToken = (voter) => {
+  const generateToken = (voter) => (e) => {
+    
+    console.log('yo')
 
-    axios.post('https://voting-ballot.herokuapp.com/admin/createPassword', {
+    e.preventDefault()
+    console.log(voter)
+
+    axios.post(process.env.REACT_APP_BACKEND_URL + 'admin/createPassword', {
       name: voter.name,
       pehchaanId: voter.pehchaanId,
       emailId: voter.emailId
@@ -74,17 +77,26 @@ const Dashboard = () => {
 
   const showResults = () => {
 
-      setDisabled(true)
-
       const date = new Date()
+
+      const last = new Date(localStorage.getItem('Last'))
+
+      if(last) { 
+        if((date.getTime() - last.getTime()) < 300000)
+          return
+      }
+
+      localStorage.setItem('Last', date)
       const time = date.toTimeString()
 
       setShow(true)
       setTime(time.substr(0, time.indexOf(' ')))
 
-      axios.get('https://voting-ballot.herokuapp.com/admin/viewResults')
+      axios.get(process.env.REACT_APP_BACKEND_URL + 'admin/viewResults')
       .then(res => {
+        console.log(res.data[0])
         setResults({
+          
           president: {
             tiwari: res.data[0].tiwariPresident,
             chenaram: res.data[0].chenaPresident
@@ -101,14 +113,12 @@ const Dashboard = () => {
       })
       .catch(err => console.log(err))
 
-      setTimeout(() => setDisabled(false), 300000)
-
   }
 
   return (
     <div className="dashboard">
 
-      <Button variant="primary" disabled={disabled} onClick={showResults}>View Results</Button>
+      <Button variant="primary" onClick={showResults}>View Results</Button>
       {
         (show)?
       <div className="results">
@@ -166,18 +176,20 @@ const Dashboard = () => {
                 return <tr>
                   <td>{index+1}</td>
                   <td>{voter.name}</td>
-                  <td><Button variant="primary" onClick={(voter) => generateToken(voter)}>Send Token</Button></td>
+                  <td><Button variant="primary" onClick={generateToken(voter)}>Send Token</Button></td>
                   <td><strong>{(voter.voted)?"Voted":"-"}</strong></td>
                 </tr>
               }
             }
+            else {
             
               return <tr>
                 <td>{index+1}</td>
                 <td>{voter.name}</td>
-                <td><Button variant="primary" onClick={(voter) => generateToken(voter)}>Send Token</Button></td>
+                <td><Button variant="primary" onClick={generateToken(voter)}>Send Token</Button></td>
                 <td><strong>{(voter.voted)?"Voted":"-"}</strong></td>
               </tr>
+            }
             
         })
         }
