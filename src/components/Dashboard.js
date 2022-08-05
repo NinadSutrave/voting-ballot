@@ -68,7 +68,7 @@ const Dashboard = () => {
     axios.post(process.env.REACT_APP_BACKEND_URL + 'admin/createPassword', {
       name: voter.name,
       pehchaanId: voter.pehchaanId,
-      emailId: voter.emailId
+      toEmail: voter.emailId
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
