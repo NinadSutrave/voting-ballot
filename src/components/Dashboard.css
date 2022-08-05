@@ -1,0 +1,17 @@
+.dashboard {
+    width: 90%;
+}
+
+#searchbar {
+    width: 50%;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: 1rem;
+}

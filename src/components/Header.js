@@ -23,7 +23,7 @@ const Header = () => {
 
         <Nav className="center">
           <Nav.Link href="/admin">Admin</Nav.Link>
-          <Nav.Link href="/voter">Voter</Nav.Link>
+          <Nav.Link href="/">Voter</Nav.Link>
         </Nav>
 
     </Container>

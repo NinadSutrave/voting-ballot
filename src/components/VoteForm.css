@@ -74,7 +74,7 @@ input[type=text], select {
 @media screen and (max-width: 800px) {
 
   .form-wrapper {
-    width: 100%;
+    width: 90%;
   }
   .voter-form {
     width: 90%;
