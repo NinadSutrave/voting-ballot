@@ -1,8 +1,12 @@
 {
-  "name": "voting-front",
+  "name": "voting-ballot",
   "version": "0.1.0",
+  "description": "An anonymous voting platform for Governing Body Election of Pehchaan - Ek Safar",
   "private": true,
-  "proxy": "http://localhost:8080/",
+  "proxy": "https://voting-ballot.herokuapp.com/",
+  "keywords": ["Voting", "Platform", "Anonymous", "Anonymity", "Voting Platform"],
+  "author": "Ninad Sutrave",
+  "license": "Apache-2.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
