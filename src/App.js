@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header.js'
 import VoteForm from './components/VoteForm.js'
 import Login from './components/Login.js'
+import Footer from './components/Footer.js'
 import Dashboard from './components/Dashboard.js'
 import {
   BrowserRouter,
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/" element={<VoteForm />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );

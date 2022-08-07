@@ -2,11 +2,12 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import './Header.css'
 
 const Header = () => {
   return (
 
-    <Navbar bg="light" expand="lg">
+    <Navbar className="navbar-color" expand="lg">
     <Container>
       <Navbar.Brand href="/">
         <img
@@ -18,7 +19,7 @@ const Header = () => {
         />
       </Navbar.Brand>
       <Navbar.Brand>
-      <strong>Pehchaan - Ek Safar</strong>
+      <strong><a className="pehchaan" href="https://www.iitrpr.ac.in/pehchaanes/" target="_blank" rel="noreferrer">Pehchaan - Ek Safar</a></strong>
       </Navbar.Brand>
 
         <Nav className="center">
