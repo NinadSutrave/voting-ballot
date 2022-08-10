@@ -117,7 +117,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
 
-      <Button variant="primary" onClick={showResults}>View Results</Button>
+      <Button className="view-results button-color" variant="primary" onClick={showResults}>View Results</Button>
       {
         (show)?
       <div className="results">
@@ -175,7 +175,7 @@ const Dashboard = () => {
                 return <tr>
                   <td>{index+1}</td>
                   <td>{voter.name}</td>
-                  <td><Button variant="primary" onClick={generateToken(voter)}>Send Token</Button></td>
+                  <td><Button className="button-color" variant="primary" onClick={generateToken(voter)}>Send Token</Button></td>
                   <td><strong>{(voter.voted)?"Voted":"-"}</strong></td>
                 </tr>
               }
@@ -185,7 +185,7 @@ const Dashboard = () => {
               return <tr>
                 <td>{index+1}</td>
                 <td>{voter.name}</td>
-                <td><Button variant="primary" onClick={generateToken(voter)}>Send Token</Button></td>
+                <td><Button className="button-color" variant="primary" onClick={generateToken(voter)}>Send Token</Button></td>
                 <td><strong>{(voter.voted)?"Voted":"-"}</strong></td>
               </tr>
             }

@@ -53,7 +53,7 @@ const [checked, setChecked] = useState(new Array(8).fill(false))
     <>
     <h4 className="tagline">May the deserving candidates win! 🎉</h4> 
   <div className="form-wrapper">
-    <h2 className="heading">Voting Ballot</h2>
+    <h2 className="form-heading">Voting Ballot</h2>
     <form action="submit" className="voter-form" onSubmit={handleSubmit}>
       <div className="contents">
 
@@ -182,7 +182,7 @@ const [checked, setChecked] = useState(new Array(8).fill(false))
 
       </div>
       <div className="submitButton">
-        <input type="submit" value="Submit" />
+        <input className="button-color" type="submit" value="Submit" />
       </div>
     </form>
     </div>

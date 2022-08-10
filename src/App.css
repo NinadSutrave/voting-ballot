@@ -1,8 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+
+  --purple: #A434FF;
+  --purple-hover: #6e1cb2;
+
+}
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: lato, sans-serif;
   box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .section2 {
@@ -10,4 +23,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }

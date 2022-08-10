@@ -1,28 +1,31 @@
-.heading {
+.form-heading {
+  font-size: 1.4rem;
   margin: 1.25rem;
+  font-weight: bold;
 }
 
 .tagline {
   margin: 1.5rem 0 1.5rem 0;
+  font-size: 1.5rem;
 }
 
 .form-wrapper {
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   margin: 1rem;
+  padding: 1rem;
   border-radius: 10px;
-  background: #f2f2f2;
+  background: #f6f6f6;
   border: 1px solid #222222;
   box-shadow: center;
 }
 
 .voter-form {
     min-height: 80vh;
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +38,17 @@
 
 .submitButton {
   width: 200px;
+}
+
+.navlinks {
+  color: white;
+}
+
+.button-color {
+  background: var(--purple);
+}
+.button-color:hover, .button-color:focus, .button-color:active, .button-color.active, .open>.dropdown-toggle.button-color {
+  background: var(--purple-hover) !important;
 }
 
 input[type=text], select {
@@ -50,7 +64,7 @@ input[type=text], select {
   input[type=submit] {
     align-items: center;
     width: 100%;
-    background-color: #4CAF50;
+    background-color: var(--purple);
     color: white;
     padding: 8px 15px;
     margin: 8px 0;
@@ -64,7 +78,7 @@ input[type=text], select {
   }
   
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: var(--purple-hover);
   }
 
 .mandatory {

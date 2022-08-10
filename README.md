@@ -2,7 +2,7 @@
 
 ## Description
 
-This platform was primarily developed for the Governing Body Elections of [Pehchaan - Ek Safar](https://www.iitrpr.ac.in/pehchaanes/index.php), an NGO run by IIT Ropar students aiming to educate the underprivileged. It was executed successfully with great performance for ~100 voters.
+This platform was primarily developed for the Governing Body Elections of [Pehchaan - Ek Safar](https://www.iitrpr.ac.in/pehchaanes/), an NGO run by IIT Ropar students aiming to educate the underprivileged. It was executed successfully with great performance for ~100 voters.
 
 ## Features
 
