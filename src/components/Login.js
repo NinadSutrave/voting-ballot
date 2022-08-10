@@ -17,7 +17,7 @@ const Login = () => {
   return (
 <>
   <div className="login-wrapper">
-    <h2 className="heading">Admin Login</h2>
+    <h2 className="admin-heading">Admin Login</h2>
     <form action="submit" className="login-form" onSubmit={handleSubmit}>
         <label for="adminid">Admin ID</label><br/>
         <input required="required" type="text" id="adminId" name="adminId" placeholder="Enter your Admin ID" 
