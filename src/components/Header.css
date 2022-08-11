@@ -1,5 +1,6 @@
 .Header {
     width: 100%;
+    box-shadow: 2px 5px 16px rgb(202, 137, 255);
 }
 
 .navbar-color {
@@ -9,7 +10,7 @@
 }
 
 .heading {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     color: white;
     font-weight: 900;
 }
