@@ -16,9 +16,17 @@ This platform was primarily developed for the Governing Body Elections of [Pehch
 
 ## Preview
 
-![This is how the website looks](src/assets/preview1.png)
+### Voting Form
 
-![This is how the website looks](src/assets/preview2.png)
+![Voting Form](src/assets/preview1.png)
+
+### Admin Section
+
+![Admin Section](src/assets/preview2.png)
+
+### Email Template
+
+![Email Template](src/assets/preview3.png)
 
 
 ## Possible Additions
