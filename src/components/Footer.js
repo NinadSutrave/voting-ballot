@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
   return (
     <div className="Footer">
-        Apache-2.0 © <a className="github" href="https://github.com/NinadSutrave" target="_blank" rel="noreferrer"> Ninad Sutrave </a>
+        License © Apache-2.0 <a className="github" href="https://github.com/NinadSutrave" target="_blank" rel="noreferrer"> </a>
     </div>
   )
 }
